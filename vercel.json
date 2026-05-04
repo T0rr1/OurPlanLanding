@@ -5,6 +5,7 @@
     { "source": "/terms", "destination": "/terms.html" },
     { "source": "/terms/", "destination": "/terms.html" },
     { "source": "/support", "destination": "/support.html" },
-    { "source": "/support/", "destination": "/support.html" }
+    { "source": "/support/", "destination": "/support.html" },
+    { "source": "/favicon.ico", "destination": "/assets/AppIcon.png" }
   ]
 }
