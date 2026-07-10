@@ -135,7 +135,7 @@
   <div class="page-label">Legal</div>
   <h1>Privacy Policy</h1>
   <p>We built OurPlan with privacy as a foundation, not an afterthought. Your financial data belongs to you and your partner — no one else.</p>
-  <p class="updated">Last updated: April 28, 2026 · Effective: April 28, 2026</p>
+  <p class="updated">Last updated: July 10, 2026 · Effective: July 10, 2026</p>
 </div>
 
 <div class="doc-body">
@@ -158,7 +158,7 @@
   <div class="doc-section" id="overview">
     <h2>1. Overview</h2>
     <div class="highlight-box">
-      <p><strong>Short version:</strong> OurPlan stores your data in your own iCloud account. We do not sell your data, we do not share it with advertisers, and we do not run third-party analytics on your financial information.</p>
+      <p><strong>Short version:</strong> OurPlan stores data on your device and syncs encrypted shared-plan records through Apple’s CloudKit infrastructure. We do not sell your data, share it with advertisers, or run third-party analytics on your financial information.</p>
     </div>
     <p>OurPlan ("we", "our", "us") is a couples budgeting application for iOS. This Privacy Policy explains what information is collected when you use OurPlan, how it is used, and the choices you have regarding your information.</p>
     <p>By using OurPlan, you agree to the practices described in this policy. If you do not agree, please discontinue use of the app.</p>
@@ -180,7 +180,7 @@
     <h3>Partner information</h3>
     <ul>
       <li>First names used to identify partners within the app (e.g. "Alex" and "Jordan")</li>
-      <li>A randomly generated invite code used to link two partners — this is ephemeral and discarded after pairing</li>
+      <li>A randomly generated invite code used to link two partners. Invite links expire after 72 hours and are not accepted afterward.</li>
     </ul>
 
     <h3>App preferences</h3>
@@ -224,8 +224,8 @@
         </tr>
       </tbody>
     </table>
-    <p>Sync between partners is handled entirely through Apple's CloudKit infrastructure. OurPlan does not operate its own servers for user data. Your data travels directly between your device and your iCloud account, subject to <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>.</p>
-    <p>The invite link used to pair partners passes through a CloudKit public database record, which is deleted after the pairing is complete or after 48 hours, whichever comes first.</p>
+    <p>Sync between partners is handled through Apple’s CloudKit infrastructure. OurPlan does not operate its own servers for user data. Plan payloads are encrypted on the device before they are written to CloudKit.</p>
+    <p>Invite links use a CloudKit public database record containing encrypted invite data. Invite links expire after 72 hours and are not accepted afterward.</p>
   </div>
 
   <div class="doc-section" id="third-parties">
@@ -253,19 +253,13 @@
 
   <div class="doc-section" id="children">
     <h2>6. Children's Privacy</h2>
-    <p>OurPlan is intended for users aged 17 and older. We do not knowingly collect personal information from anyone under the age of 13. If you believe a child under 13 has provided information through our app, please contact us at <a href="mailto:support@getourplan.app">support@getourplan.app</a> and we will promptly delete it.</p>
+    <p>OurPlan is not directed to children under 13. We do not knowingly collect personal information from children under 13.</p>
   </div>
 
   <div class="doc-section" id="your-rights">
     <h2>7. Your Rights &amp; Data Deletion</h2>
-    <p>Because your data lives in your iCloud account and on your device, you have full control at all times.</p>
-
-    <h3>Delete your data</h3>
-    <ul>
-      <li><strong>Delete all data from the app:</strong> Go to <em>Settings → Danger Zone → Delete All Data</em> inside OurPlan. This removes all local SwiftData records immediately.</li>
-      <li><strong>Remove iCloud data:</strong> Go to <em>iPhone Settings → Apple ID → iCloud → Manage Account Storage → OurPlan → Delete Data</em></li>
-      <li><strong>Uninstall the app:</strong> Deleting OurPlan from your device removes all locally stored data automatically.</li>
-    </ul>
+    <p><strong>Delete a shared plan:</strong> Go to Settings → Reset Everything inside OurPlan. This removes local app data and deletes the associated shared-plan records in CloudKit. Linked partner devices remove their local data after they next synchronize.</p>
+    <p><strong>Uninstall the app:</strong> Deleting OurPlan removes locally stored app data from that device. It does not by itself delete shared CloudKit records.</p>
 
     <h3>Data portability</h3>
     <p>OurPlan Pro includes a CSV export feature that lets you download all your transaction and budget data in a standard format at any time.</p>
