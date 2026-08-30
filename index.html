@@ -6,18 +6,18 @@
     <title>OurPlan — Paycheck planning for couples</title>
     <meta
       name="description"
-      content="Plan each paycheck together without bank sync. OurPlan helps couples share buckets, payday checklists, goals, and low-stress money meetings."
+      content="OurPlan is the couples budgeting app that runs your payday: log spending, fund your buckets, protect your debt minimums, and confirm the plan together in a 10-minute weekly meeting. No bank linking. Pro proves and protects what you build together."
     />
     <link rel="icon" type="image/png" href="/assets/AppIcon.png" />
     <link rel="apple-touch-icon" href="/assets/AppIcon.png" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://getourplan.app/" />
     <meta property="og:title" content="OurPlan — Paycheck planning for couples" />
-    <meta property="og:description" content="Plan each paycheck together without bank sync. OurPlan helps couples share buckets, payday checklists, goals, and low-stress money meetings." />
+    <meta property="og:description" content="Free runs your payday — log spending, fund buckets, protect debt minimums, and confirm the plan in a 10-minute weekly meeting. No bank linking. Pro proves and protects what you build together." />
     <meta property="og:image" content="https://getourplan.app/assets/AppIcon.png" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="OurPlan — Paycheck planning for couples" />
-    <meta name="twitter:description" content="Plan each paycheck together without bank sync. OurPlan helps couples share buckets, payday checklists, goals, and low-stress money meetings." />
+    <meta name="twitter:description" content="Free runs your payday — log spending, fund buckets, protect debt minimums, and confirm the plan in a 10-minute weekly meeting. No bank linking. Pro proves and protects what you build together." />
     <meta name="twitter:image" content="https://getourplan.app/assets/AppIcon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -1378,6 +1378,434 @@
         color: var(--text-muted);
       }
 
+      /* ── "NEW" BADGES ── */
+      .badge-new {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.7px;
+        text-transform: uppercase;
+        color: var(--mint);
+        background: rgba(108, 191, 142, 0.13);
+        border: 1px solid rgba(108, 191, 142, 0.32);
+        padding: 3px 9px;
+        border-radius: 100px;
+      }
+      .badge-new::before {
+        content: "";
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--mint);
+        box-shadow: 0 0 0 0 rgba(108, 191, 142, 0.5);
+        animation: pdot 2s ease-in-out infinite;
+      }
+      .feat-card {
+        position: relative;
+      }
+      .feat-card .card-new {
+        position: absolute;
+        top: 22px;
+        right: 22px;
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 0.7px;
+        text-transform: uppercase;
+        color: var(--mint);
+        background: rgba(108, 191, 142, 0.13);
+        border: 1px solid rgba(108, 191, 142, 0.3);
+        padding: 3px 8px;
+        border-radius: 100px;
+      }
+      .tab-name .nb {
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 0.4px;
+        color: var(--mint);
+        background: rgba(108, 191, 142, 0.14);
+        border: 1px solid rgba(108, 191, 142, 0.3);
+        padding: 1px 6px;
+        border-radius: 100px;
+        margin-left: 3px;
+        text-transform: uppercase;
+      }
+
+      /* ── SPOTLIGHT (NEW FEATURES) ── */
+      .spotlight-section {
+        background: rgba(255, 255, 255, 0.015);
+        border-top: 1px solid var(--border);
+        overflow: hidden;
+      }
+      .spot-head {
+        max-width: 640px;
+        margin-bottom: 24px;
+      }
+      .spot-row {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 72px;
+        align-items: center;
+        padding: 46px 0;
+      }
+      .spot-row.reverse .spot-visual {
+        order: -1;
+      }
+      .spot-copy h3 {
+        font-size: clamp(24px, 3.1vw, 38px);
+        font-weight: 800;
+        letter-spacing: -1.1px;
+        line-height: 1.14;
+        margin: 16px 0 14px;
+        text-wrap: pretty;
+      }
+      .spot-copy h3 em {
+        font-style: normal;
+        color: var(--sage);
+      }
+      .spot-copy > p {
+        font-size: 16px;
+        color: var(--text-muted);
+        line-height: 1.7;
+        max-width: 470px;
+        margin-bottom: 28px;
+      }
+      .spot-points {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+      }
+      .spot-point {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+      }
+      .sp-ic {
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .spot-point h4 {
+        font-size: 14.5px;
+        font-weight: 700;
+        letter-spacing: -0.2px;
+        margin-bottom: 3px;
+      }
+      .spot-point p {
+        font-size: 13.5px;
+        color: var(--text-muted);
+        line-height: 1.6;
+      }
+      .spot-visual {
+        position: relative;
+        display: flex;
+        justify-content: center;
+      }
+      .spot-glow {
+        position: absolute;
+        inset: -12% -6%;
+        border-radius: 50%;
+        filter: blur(90px);
+        pointer-events: none;
+        background: radial-gradient(
+          circle at center,
+          rgba(77, 124, 116, 0.22) 0%,
+          transparent 68%
+        );
+      }
+      .spot-row.reverse .spot-glow {
+        background: radial-gradient(
+          circle at center,
+          rgba(74, 95, 117, 0.2) 0%,
+          transparent 68%
+        );
+      }
+      .spot-phone {
+        position: relative;
+        width: 268px;
+        border-radius: 46px;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        overflow: hidden;
+        box-shadow:
+          0 34px 70px rgba(0, 0, 0, 0.6),
+          0 0 0 1px rgba(255, 255, 255, 0.05);
+        background: var(--cream);
+      }
+      .spot-phone img {
+        width: 100%;
+        display: block;
+      }
+      .spot-phone .snotch {
+        position: absolute;
+        top: 11px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 84px;
+        height: 24px;
+        background: #000;
+        border-radius: 100px;
+        z-index: 5;
+      }
+      .spot-chip {
+        position: absolute;
+        z-index: 6;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        background: rgba(18, 34, 51, 0.94);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(77, 124, 116, 0.35);
+        border-radius: 13px;
+        padding: 9px 13px;
+        box-shadow: 0 12px 34px rgba(0, 0, 0, 0.5);
+      }
+      .spot-chip svg {
+        width: 15px;
+        height: 15px;
+        color: var(--mint);
+        flex-shrink: 0;
+      }
+      .spot-chip span {
+        font-size: 12px;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+      .spot-chip.c1 {
+        top: 70px;
+        left: -34px;
+        animation: floatA 6s ease-in-out infinite;
+      }
+      .spot-chip.c2 {
+        bottom: 96px;
+        right: -30px;
+        animation: floatB2 6.5s 0.8s ease-in-out infinite;
+      }
+      @keyframes floatB2 {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-14px);
+        }
+      }
+
+      /* ── DEBT VISUAL ── */
+      .debt-viz {
+        background: rgba(0, 0, 0, 0.22);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        max-width: 348px;
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+      }
+      .dv-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .dv-label {
+        font-size: 12px;
+        color: var(--text-muted);
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+      .dv-date {
+        font-size: 27px;
+        font-weight: 800;
+        letter-spacing: -0.6px;
+        color: var(--mint);
+      }
+      .dv-delta {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--mint);
+        background: rgba(108, 191, 142, 0.13);
+        border: 1px solid rgba(108, 191, 142, 0.28);
+        padding: 4px 9px;
+        border-radius: 100px;
+        white-space: nowrap;
+        margin-top: 4px;
+      }
+      .dv-div {
+        height: 1px;
+        background: var(--border);
+      }
+      .dv-row {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+      }
+      .dv-ic {
+        width: 32px;
+        height: 32px;
+        border-radius: 9px;
+        background: rgba(255, 255, 255, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .dv-ic svg {
+        width: 16px;
+        height: 16px;
+      }
+      .dv-name {
+        flex: 1;
+        font-size: 13px;
+        font-weight: 700;
+      }
+      .dv-name small {
+        display: block;
+        font-size: 11px;
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+      .dv-min {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--mint);
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        text-align: right;
+      }
+      .dv-min svg {
+        width: 12px;
+        height: 12px;
+      }
+      .dv-rescue {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(232, 152, 90, 0.1);
+        border: 1px solid rgba(232, 152, 90, 0.28);
+        border-radius: 13px;
+        padding: 11px 13px;
+      }
+      .dv-rescue svg {
+        color: var(--flex);
+        width: 17px;
+        height: 17px;
+        flex-shrink: 0;
+      }
+      .dv-rescue div {
+        line-height: 1.3;
+      }
+      .dv-rescue strong {
+        font-size: 12.5px;
+        font-weight: 700;
+        display: block;
+      }
+      .dv-rescue small {
+        font-size: 11px;
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+
+      /* ── PRO SECTION (Proof / Protection / Peace) ── */
+      .pro-section {
+        background: rgba(255, 255, 255, 0.015);
+        border-top: 1px solid var(--border);
+      }
+      .pro-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-top: 52px;
+      }
+      .pro-col {
+        background: var(--navy-card);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 28px 24px 30px;
+        transition:
+          border-color 0.3s,
+          transform 0.3s;
+      }
+      .pro-col:hover {
+        border-color: var(--border-mid);
+        transform: translateY(-4px);
+      }
+      .pro-col-head {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 8px;
+      }
+      .pro-col-ic {
+        width: 40px;
+        height: 40px;
+        border-radius: 11px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .pro-col-head h3 {
+        font-size: 18px;
+        font-weight: 800;
+        letter-spacing: -0.3px;
+      }
+      .pc-sub {
+        font-size: 13px;
+        color: var(--text-muted);
+        line-height: 1.55;
+        margin-bottom: 20px;
+      }
+      .pro-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .pro-item h4 {
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: -0.1px;
+        margin-bottom: 3px;
+      }
+      .pro-item p {
+        font-size: 12.5px;
+        color: var(--text-muted);
+        line-height: 1.55;
+      }
+      .pro-also {
+        margin-top: 26px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        align-items: center;
+        justify-content: center;
+      }
+      .pro-also .pa-label {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--text-dim);
+        margin-right: 4px;
+      }
+      .pro-chip {
+        font-size: 12.5px;
+        font-weight: 600;
+        color: var(--text-muted);
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--border-mid);
+        border-radius: 100px;
+        padding: 7px 14px;
+      }
+
       /* ── RESPONSIVE ── */
       @media (max-width: 960px) {
         nav {
@@ -1405,6 +1833,25 @@
         .feat-card.wide {
           grid-column: span 1;
           grid-template-columns: 1fr;
+        }
+        .spot-row {
+          grid-template-columns: 1fr;
+          gap: 40px;
+          padding: 34px 0;
+        }
+        .spot-row.reverse .spot-visual {
+          order: 0;
+        }
+        .spot-chip.c1 {
+          left: 6px;
+        }
+        .spot-chip.c2 {
+          right: 6px;
+        }
+        .pro-grid {
+          grid-template-columns: 1fr;
+          gap: 14px;
+          margin-top: 40px;
         }
         .rhythm-grid {
           grid-template-columns: 1fr 1fr;
@@ -1491,6 +1938,13 @@
         .screen-label p {
           font-size: 12px;
         }
+        .spot-phone {
+          width: 224px;
+          border-radius: 40px;
+        }
+        .spot-chip span {
+          font-size: 11px;
+        }
         .rhythm-grid {
           grid-template-columns: 1fr;
         }
@@ -1539,6 +1993,7 @@
         <a href="#screens" data-section="screens">The App</a>
         <a href="#rhythm" data-section="rhythm">How It Works</a>
         <a href="#features" data-section="features">Features</a>
+        <a href="#pro" data-section="pro">Pro</a>
         <a href="#pricing" data-section="pricing">Pricing</a>
         <a href="/support/">Support</a>
         <a href="https://apps.apple.com/app/ourplan-couples-budget/id6760730097" class="btn-nav"
@@ -1562,8 +2017,9 @@
         <span class="t-flex">built for two.</span>
       </h1>
       <p class="hero-sub">
-        <em>Know what this paycheck is for.</em> Build a shared plan, confirm
-        bills and goals together, and stay aligned without connecting a bank.
+        <em>Free runs your payday.</em> Log spending, fund your buckets, protect
+        your debt minimums, and confirm the plan together each week. Pro proves
+        and protects what you're building — no bank linking, ever.
       </p>
 
       <div class="hero-ctas">
@@ -1646,8 +2102,8 @@
               </svg>
             </div>
             <div class="toast-body">
-              <small>Next payday step</small
-              ><strong>Confirm checklist</strong>
+              <small>Payday Promise</small
+              ><strong>Assigned → Confirmed</strong>
             </div>
           </div>
           <div class="phone">
@@ -1662,128 +2118,15 @@
 
       <div class="hero-proof">
         <p>
-          Built for couples who want <strong>one shared paycheck plan</strong> —
-          no bank sync, no money movement, no guessing
+          Built for couples who want <strong>one shared plan they both trust</strong>
+          — no bank linking, no spreadsheets, no guessing
         </p>
       </div>
     </div>
 
     <!-- MARQUEE -->
     <div class="marquee">
-      <div class="marquee-track">
-        <div class="marquee-item">
-          <svg viewBox="0 0 16 16" fill="currentColor">
-            <path
-              d="M8 1l1.8 3.6L14 5.6l-3 2.9.7 4.1L8 10.8 4.3 12.6l.7-4.1-3-2.9 4.2-.6z"
-            /></svg
-          >Essentials · Growth · Reserves · Flex
-        </div>
-        <div class="marquee-item">
-          <svg viewBox="0 0 16 16" fill="currentColor">
-            <path
-              d="M8 1l1.8 3.6L14 5.6l-3 2.9.7 4.1L8 10.8 4.3 12.6l.7-4.1-3-2.9 4.2-.6z"
-            /></svg
-          >Weekly Money Meeting
-        </div>
-        <div class="marquee-item">
-          <svg viewBox="0 0 16 16" fill="currentColor">
-            <path
-              d="M8 1l1.8 3.6L14 5.6l-3 2.9.7 4.1L8 10.8 4.3 12.6l.7-4.1-3-2.9 4.2-.6z"
-            /></svg
-          >Payday Checklist
-        </div>
-        <div class="marquee-item">
-          <svg viewBox="0 0 16 16" fill="currentColor">
-            <path
-              d="M8 1l1.8 3.6L14 5.6l-3 2.9.7 4.1L8 10.8 4.3 12.6l.7-4.1-3-2.9 4.2-.6z"
-            /></svg
-          >Shared Goals
-        </div>
-        <div class="marquee-item">
-          <svg viewBox="0 0 16 16" fill="currentColor">
-            <path
-              d="M8 1l1.8 3.6L14 5.6l-3 2.9.7 4.1L8 10.8 4.3 12.6l.7-4.1-3-2.9 4.2-.6z"
-            /></svg
-          >Partner Sync via iCloud
-        </div>
-        <div class="marquee-item">
-          <svg viewBox="0 0 16 16" fill="currentColor">
-            <path
-              d="M8 1l1.8 3.6L14 5.6l-3 2.9.7 4.1L8 10.8 4.3 12.6l.7-4.1-3-2.9 4.2-.6z"
-            /></svg
-          >Income Breakdown
-        </div>
-        <div class="marquee-item">
-          <svg viewBox="0 0 16 16" fill="currentColor">
-            <path
-              d="M8 1l1.8 3.6L14 5.6l-3 2.9.7 4.1L8 10.8 4.3 12.6l.7-4.1-3-2.9 4.2-.6z"
-            /></svg
-          >What-If Planner
-        </div>
-        <div class="marquee-item">
-          <svg viewBox="0 0 16 16" fill="currentColor">
-            <path
-              d="M8 1l1.8 3.6L14 5.6l-3 2.9.7 4.1L8 10.8 4.3 12.6l.7-4.1-3-2.9 4.2-.6z"
-            /></svg
-          >Home Screen Widget
-        </div>
-        <div class="marquee-item">
-          <svg viewBox="0 0 16 16" fill="currentColor">
-            <path
-              d="M8 1l1.8 3.6L14 5.6l-3 2.9.7 4.1L8 10.8 4.3 12.6l.7-4.1-3-2.9 4.2-.6z"
-            /></svg
-          >Essentials · Growth · Reserves · Flex
-        </div>
-        <div class="marquee-item">
-          <svg viewBox="0 0 16 16" fill="currentColor">
-            <path
-              d="M8 1l1.8 3.6L14 5.6l-3 2.9.7 4.1L8 10.8 4.3 12.6l.7-4.1-3-2.9 4.2-.6z"
-            /></svg
-          >Weekly Money Meeting
-        </div>
-        <div class="marquee-item">
-          <svg viewBox="0 0 16 16" fill="currentColor">
-            <path
-              d="M8 1l1.8 3.6L14 5.6l-3 2.9.7 4.1L8 10.8 4.3 12.6l.7-4.1-3-2.9 4.2-.6z"
-            /></svg
-          >Payday Checklist
-        </div>
-        <div class="marquee-item">
-          <svg viewBox="0 0 16 16" fill="currentColor">
-            <path
-              d="M8 1l1.8 3.6L14 5.6l-3 2.9.7 4.1L8 10.8 4.3 12.6l.7-4.1-3-2.9 4.2-.6z"
-            /></svg
-          >Shared Goals
-        </div>
-        <div class="marquee-item">
-          <svg viewBox="0 0 16 16" fill="currentColor">
-            <path
-              d="M8 1l1.8 3.6L14 5.6l-3 2.9.7 4.1L8 10.8 4.3 12.6l.7-4.1-3-2.9 4.2-.6z"
-            /></svg
-          >Partner Sync via iCloud
-        </div>
-        <div class="marquee-item">
-          <svg viewBox="0 0 16 16" fill="currentColor">
-            <path
-              d="M8 1l1.8 3.6L14 5.6l-3 2.9.7 4.1L8 10.8 4.3 12.6l.7-4.1-3-2.9 4.2-.6z"
-            /></svg
-          >Income Breakdown
-        </div>
-        <div class="marquee-item">
-          <svg viewBox="0 0 16 16" fill="currentColor">
-            <path
-              d="M8 1l1.8 3.6L14 5.6l-3 2.9.7 4.1L8 10.8 4.3 12.6l.7-4.1-3-2.9 4.2-.6z"
-            /></svg
-          >What-If Planner
-        </div>
-        <div class="marquee-item">
-          <svg viewBox="0 0 16 16" fill="currentColor">
-            <path
-              d="M8 1l1.8 3.6L14 5.6l-3 2.9.7 4.1L8 10.8 4.3 12.6l.7-4.1-3-2.9 4.2-.6z"
-            /></svg
-          >Home Screen Widget
-        </div>
-      </div>
+      <div class="marquee-track" id="mtrack"></div>
     </div>
 
     <!-- SCREENSHOTS -->
@@ -1791,173 +2134,276 @@
       <div class="screens-inner">
         <div class="screens-header reveal">
           <div class="tag">The App</div>
-          <h2 class="sh2">Five tabs.<br /><em>One shared plan.</em></h2>
+          <h2 class="sh2">The whole payday loop.<br /><em>Built for two.</em></h2>
           <p class="ssub">
-            Every screen is built around the couple — not the individual. Here's
-            how a paycheck becomes bills, savings, goals, and flex money.
+            From your first plan to the weekly Money Meeting — every screen is
+            designed for two people sharing one plan, with no bank linking.
           </p>
         </div>
 
         <div class="screens-track">
-          <!-- 1. Plan tab — live budget -->
           <div class="screen-card reveal d1">
             <div class="screen-phone">
               <div class="snotch"></div>
               <img
-                src="uploads/Simulator Screenshot - iPhone 17 Pro Max - 2026-04-29 at 12.40.59.png"
-                alt="OurPlan Plan tab showing shared budget buckets"
+                src="uploads/Simulator Screenshot - iPhone 17 Pro Max - 2026-04-29 at 12.02.21.png"
+                alt="Start in minutes"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div class="screen-label">
               <div class="tab-name">
-                <svg
-                  width="10"
-                  height="10"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                >
-                  <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M12 3l1.9 4.6L18.5 9l-4.6 1.9L12 15l-1.9-4.6L5.5 9l4.6-1.4z"/><path d="M5 15v3M3.5 16.5h3"/>
                 </svg>
-                Plan
+                Setup
               </div>
-              <h3>Your shared paycheck plan</h3>
-              <p>
-                See income and every bucket in one view — Essentials, Growth,
-                Reserves, and Flex stay aligned.
-              </p>
+              <h3>Start in minutes</h3>
+              <p>Set up your plan by hand — income, buckets, and debts. No bank linking, no logins.</p>
             </div>
           </div>
-
-          <!-- 2. Income Breakdown -->
           <div class="screen-card reveal d2">
             <div class="screen-phone">
               <div class="snotch"></div>
               <img
-                src="uploads/Simulator Screenshot - iPhone 17 Pro Max - 2026-04-29 at 12.41.18.png"
-                alt="OurPlan Income Breakdown by bucket and partner"
+                src="uploads/Simulator Screenshot - iPhone 17 Pro Max - 2026-04-29 at 12.08.01.png"
+                alt="Set your split"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div class="screen-label">
               <div class="tab-name">
-                <svg
-                  width="10"
-                  height="10"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                >
-                  <path d="M21.21 15.89A10 10 0 118 2.83" />
-                  <path d="M22 12A10 10 0 0012 2v10z" />
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
                 </svg>
-                Breakdown
+                Plan
               </div>
-              <h3>Agree before payday</h3>
-              <p>
-                Review the split by category and partner so both people
-                understand the plan before money starts moving.
-              </p>
+              <h3>Set your split</h3>
+              <p>Divide income across Essentials, Growth, Reserves, and Flex, from proven target ranges.</p>
             </div>
           </div>
-
-          <!-- 3. Payday checklist -->
           <div class="screen-card reveal d3">
             <div class="screen-phone">
               <div class="snotch"></div>
               <img
-                src="uploads/Simulator Screenshot - iPhone 17 Pro Max - 2026-04-29 at 12.41.46.png"
-                alt="OurPlan payday checklist screen"
+                src="uploads/Simulator Screenshot - iPhone 17 Pro Max - 2026-04-29 at 12.40.59.png"
+                alt="Your shared plan"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div class="screen-label">
               <div class="tab-name">
-                <svg
-                  width="10"
-                  height="10"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                >
-                  <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
                 </svg>
-                Payday
+                Plan
               </div>
-              <h3>Make payday repeatable</h3>
-              <p>
-                Follow a checklist for bills, transfers, and goals so both
-                partners can confirm what happened.
-              </p>
+              <h3>Your shared plan</h3>
+              <p>Income and every bucket in one view, with each partner's contribution and your week at a glance.</p>
             </div>
           </div>
-
-          <!-- 4. Check-in / Payday -->
           <div class="screen-card reveal d4">
             <div class="screen-phone">
               <div class="snotch"></div>
               <img
                 src="uploads/Simulator Screenshot - iPhone 17 Pro Max - 2026-04-29 at 12.42.12.png"
-                alt="OurPlan Check-in tab for funding buckets"
+                alt="Fund your buckets"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div class="screen-label">
               <div class="tab-name">
-                <svg
-                  width="10"
-                  height="10"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                >
-                  <path
-                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"
-                  />
-                  <rect x="9" y="3" width="6" height="4" rx="1" />
-                  <polyline points="9 12 11 14 15 10" />
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.2"/><path d="M6 12h.01M18 12h.01"/>
                 </svg>
-                Check-in
+                Payday
               </div>
-              <h3>Confirm what changed</h3>
-              <p>
-                Use payday and weekly check-ins to confirm what is funded, what
-                changed, and what needs attention.
-              </p>
+              <h3>Fund your buckets</h3>
+              <p>Assign each paycheck and protect your debt minimums first — that's your Payday Promise.</p>
             </div>
           </div>
-
-          <!-- 5. Pro -->
+          <div class="screen-card reveal d1">
+            <div class="screen-phone">
+              <div class="snotch"></div>
+              <img
+                src="uploads/Simulator Screenshot - iPhone 17 Pro Max - 2026-04-29 at 12.41.18.png"
+                alt="Who covers what"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="screen-label">
+              <div class="tab-name">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M21.21 15.89A10 10 0 118 2.83"/><path d="M22 12A10 10 0 0012 2v10z"/>
+                </svg>
+                Split
+              </div>
+              <h3>Who covers what</h3>
+              <p>A clear picture of where income goes, by bucket and by partner, so you agree before payday.</p>
+            </div>
+          </div>
+          <div class="screen-card reveal d2">
+            <div class="screen-phone">
+              <div class="snotch"></div>
+              <img
+                src="uploads/Simulator Screenshot - iPhone 17 Pro Max - 2026-04-29 at 12.08.29.png"
+                alt="Weekly Money Meeting"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="screen-label">
+              <div class="tab-name">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                Meeting
+              </div>
+              <h3>Weekly Money Meeting</h3>
+              <p>Pick a day and time; OurPlan reminds you both for a guided 10-minute check-in.</p>
+            </div>
+          </div>
+          <div class="screen-card reveal d3">
+            <div class="screen-phone">
+              <div class="snotch"></div>
+              <img
+                src="uploads/Simulator Screenshot - iPhone 17 Pro Max - 2026-04-29 at 12.40.19.png"
+                alt="Invite your partner"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="screen-label">
+              <div class="tab-name">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+                </svg>
+                Partner
+              </div>
+              <h3>Invite your partner</h3>
+              <p>Share the plan through encrypted CloudKit sync — a link or a join code, whatever's easiest.</p>
+            </div>
+          </div>
           <div class="screen-card reveal d4">
             <div class="screen-phone">
               <div class="snotch"></div>
               <img
-                src="uploads/Simulator Screenshot - iPhone 17 Pro Max - 2026-04-29 at 12.43.05.png"
-                alt="OurPlan Pro upgrade screen"
+                src="uploads/Simulator Screenshot - iPhone 17 Pro Max - 2026-04-29 at 12.41.46.png"
+                alt="Map your accounts"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div class="screen-label">
               <div class="tab-name">
-                <svg
-                  width="10"
-                  height="10"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                >
-                  <path
-                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"
-                  />
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="3" y1="21" x2="21" y2="21"/><line x1="3" y1="10" x2="21" y2="10"/><polyline points="5 10 5 21"/><polyline points="19 10 19 21"/><polyline points="9 10 9 21"/><polyline points="15 10 15 21"/><polygon points="12 2 20 7 4 7 12 2"/>
                 </svg>
-                Pro
+                Accounts
               </div>
-              <h3>Grow into smarter tools</h3>
-              <p>
-                Upgrade when you want widgets, fair split, deeper history, CSV
-                export, and planning insights.
-              </p>
+              <h3>Map your accounts</h3>
+              <p>See a recommended account setup and a checklist you can automate at your bank.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SPOTLIGHT: DEBT-AWARE -->
+    <section class="spotlight-section" id="debt">
+      <div class="inner">
+        <div class="spot-head reveal">
+          <div class="tag">Debt-Aware</div>
+          <h2 class="sh2">Your plan protects<br /><em>your debt, first.</em></h2>
+          <p class="ssub">
+            OurPlan is built around the debt you're actually carrying — and the
+            core of it is free.
+          </p>
+        </div>
+
+        <div class="spot-row reveal">
+          <div class="spot-copy">
+            <div class="badge-new">Included free</div>
+            <h3>Add your cards and loans. We protect the <em>minimums</em>.</h3>
+            <p>
+              Enter each debt's balance, APR, minimum, and due day. OurPlan funds
+              those minimums before anything else, shows a free estimated
+              debt-free date, and switches to Debt Rescue Mode when a paycheck
+              falls short.
+            </p>
+            <div class="spot-points">
+              <div class="spot-point">
+                <div class="sp-ic i-mint">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4>Minimums first</h4>
+                  <p>Every payday funds your required minimums before buckets — so a due date never sneaks up on you.</p>
+                </div>
+              </div>
+              <div class="spot-point">
+                <div class="sp-ic i-sage">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4>Free debt-free date</h4>
+                  <p>See your estimated payoff date from day one and watch it move as you go — no subscription needed.</p>
+                </div>
+              </div>
+              <div class="spot-point">
+                <div class="sp-ic i-flex">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4>Debt Rescue Mode</h4>
+                  <p>Short on a paycheck? OurPlan re-sequences the plan to keep your debt protected.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="spot-visual">
+            <div class="spot-glow"></div>
+            <div class="debt-viz">
+              <div class="dv-top">
+                <div>
+                  <div class="dv-label">Estimated debt-free date</div>
+                  <div class="dv-date">Aug 2028</div>
+                </div>
+                <div class="dv-delta">5 months sooner</div>
+              </div>
+              <div class="dv-div"></div>
+              <div class="dv-row">
+                <div class="dv-ic">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#4A5F75" stroke-width="1.9"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+                </div>
+                <div class="dv-name">Visa •••• 4021<small>$3,180 · 22.9% APR</small></div>
+                <div class="dv-min"><svg viewBox="0 0 24 24" fill="none" stroke="#6CBF8E" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Min $95</div>
+              </div>
+              <div class="dv-row">
+                <div class="dv-ic">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#4A5F75" stroke-width="1.9"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div class="dv-name">Car loan<small>$11,400 · 6.4% APR</small></div>
+                <div class="dv-min"><svg viewBox="0 0 24 24" fill="none" stroke="#6CBF8E" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> Min $260</div>
+              </div>
+              <div class="dv-rescue">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                <div>
+                  <strong>Debt Rescue Mode</strong>
+                  <small>Paycheck short — minimums stay protected first.</small>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1972,7 +2418,8 @@
           <h2 class="sh2">One paycheck.<br /><em>A plan you both trust.</em></h2>
           <p class="ssub">
             OurPlan helps you decide what each paycheck needs to do, then gives
-            both partners the same checklist, buckets, and weekly check-in.
+            both partners the same plan, buckets, debt protection, and weekly
+            meeting.
           </p>
         </div>
 
@@ -1995,8 +2442,8 @@
             </div>
             <h3>Set your plan</h3>
             <p>
-              Enter income, choose your Essentials / Growth / Reserves / Flex
-              split, and create the first shared plan.
+              Enter income, split it into buckets, and add the cards and loans
+              you're carrying — all by hand, no bank linking.
             </p>
             <div class="rs-bar">
               <div class="rs-fill rf-sage" id="rf1"></div>
@@ -2016,10 +2463,10 @@
                 <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
               </svg>
             </div>
-            <h3>Payday gets clear</h3>
+            <h3>Fund each payday</h3>
             <p>
-              Payday lands. OurPlan reminds you to review the checklist and
-              confirm bills, transfers, and goals together.
+              Assign each paycheck to the plan. OurPlan protects your debt
+              minimums first, then fills your buckets by priority.
             </p>
             <div class="rs-bar">
               <div class="rs-fill rf-slate" id="rf2"></div>
@@ -2043,10 +2490,10 @@
                 />
               </svg>
             </div>
-            <h3>Invite your partner</h3>
+            <h3>Confirm together</h3>
             <p>
-              Share the plan through iCloud so both people can see the same
-              buckets, goals, and decisions on their own phones.
+              Confirm what actually happened with Payday Promise, and invite
+              your partner through encrypted CloudKit sync.
             </p>
             <div class="rs-bar">
               <div class="rs-fill rf-mint" id="rf3"></div>
@@ -2068,9 +2515,9 @@
                 <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
               </svg>
             </div>
-            <h3>10-min check-in</h3>
+            <h3>Weekly Money Meeting</h3>
             <p>
-              Use a guided Money Meeting to review what changed, make small
+              A guided 10-minute check-in to review what changed, make small
               adjustments, and start the next week calmer.
             </p>
             <div class="rs-bar">
@@ -2091,7 +2538,8 @@
               d="M20.49 9A9 9 0 005.64 5.64L1 10M23 14l-4.64 4.36A9 9 0 013.51 15"
             />
           </svg>
-          Manual planning, shared visibility, and reminders you control
+          Manual entry, shared visibility, and reminders you control — no bank
+          linking
         </div>
       </div>
     </section>
@@ -2100,26 +2548,19 @@
     <section id="features">
       <div class="inner">
         <div class="reveal">
-          <div class="tag">Features</div>
-          <h2 class="sh2">Built for two.<br /><em>Not retrofitted.</em></h2>
+          <div class="tag">Free — runs your payday</div>
+          <h2 class="sh2">The whole loop is free.<br /><em>No bank linking, ever.</em></h2>
           <p class="ssub">
-            Most budgeting apps are solo tools awkwardly shared. OurPlan was
-            designed from day one around a couple — two people, one paycheck
-            plan.
+            OurPlan Free runs your money end to end — logging, buckets, debt
+            protection, partner sync, recurring bills, and CSV export. You only
+            reach for Pro when you want the couple coordination layer.
           </p>
         </div>
         <div class="feat-grid">
           <div class="feat-card wide reveal d1">
             <div>
               <div class="ficon fi-s">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="#4D7C74"
-                  stroke-width="1.8"
-                >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4D7C74" stroke-width="1.8">
                   <line x1="12" y1="1" x2="12" y2="23" />
                   <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
                 </svg>
@@ -2136,10 +2577,7 @@
                 <div class="bv-dot" style="background: #4d7c74"></div>
                 <div class="bv-lbl">Essentials</div>
                 <div class="bv-bar-wrap">
-                  <div
-                    class="bv-bar"
-                    style="width: 100%; background: #4d7c74"
-                  ></div>
+                  <div class="bv-bar" style="width: 100%; background: #4d7c74"></div>
                 </div>
                 <div class="bv-amt">$3,500</div>
               </div>
@@ -2147,10 +2585,7 @@
                 <div class="bv-dot" style="background: #4a5f75"></div>
                 <div class="bv-lbl">Growth</div>
                 <div class="bv-bar-wrap">
-                  <div
-                    class="bv-bar"
-                    style="width: 20%; background: #4a5f75"
-                  ></div>
+                  <div class="bv-bar" style="width: 20%; background: #4a5f75"></div>
                 </div>
                 <div class="bv-amt">$700</div>
               </div>
@@ -2158,10 +2593,7 @@
                 <div class="bv-dot" style="background: #5b8a82"></div>
                 <div class="bv-lbl">Reserves</div>
                 <div class="bv-bar-wrap">
-                  <div
-                    class="bv-bar"
-                    style="width: 20%; background: #5b8a82"
-                  ></div>
+                  <div class="bv-bar" style="width: 20%; background: #5b8a82"></div>
                 </div>
                 <div class="bv-amt">$700</div>
               </div>
@@ -2169,120 +2601,172 @@
                 <div class="bv-dot" style="background: #e8985a"></div>
                 <div class="bv-lbl">Flex</div>
                 <div class="bv-bar-wrap">
-                  <div
-                    class="bv-bar"
-                    style="width: 60%; background: #e8985a"
-                  ></div>
+                  <div class="bv-bar" style="width: 60%; background: #e8985a"></div>
                 </div>
                 <div class="bv-amt">$2,100</div>
               </div>
             </div>
           </div>
           <div class="feat-card reveal d2">
-            <div class="ficon fi-sl">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#4A5F75"
-                stroke-width="1.8"
-              >
-                <polyline points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-              </svg>
-            </div>
-            <h3>Payday Checklist</h3>
-            <p>
-              Keep bills, transfers, and savings goals in a clear checklist.
-              OurPlan does not move money; it helps both partners confirm what
-              is planned and what is done.
-            </p>
-          </div>
-          <div class="feat-card reveal d1">
             <div class="ficon fi-c">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#D9806C"
-                stroke-width="1.8"
-              >
-                <path
-                  d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"
-                />
-                <rect x="9" y="3" width="6" height="4" rx="1" />
-                <path d="M9 12h6M9 16h4" />
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D9806C" stroke-width="1.8">
+                <rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/>
               </svg>
             </div>
-            <h3>Weekly Check-in</h3>
-            <p>
-              A guided 10-minute Money Meeting every week. Review the paycheck
-              plan, celebrate wins, and align on what needs attention next.
-            </p>
-          </div>
-          <div class="feat-card reveal d2">
-            <div class="ficon fi-m">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#6CBF8E"
-                stroke-width="1.8"
-              >
-                <polygon
-                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
-                />
-              </svg>
-            </div>
-            <h3>Shared Goals</h3>
-            <p>
-              Emergency fund, debt payoff, trips, date nights, or a first home
-              — set targets together and keep progress visible to both people.
-            </p>
+            <h3>Debt-Aware Plan</h3>
+            <p>Add cards and loans with balance, APR, minimum, and due day. OurPlan protects the minimums first and shows a free debt-free date.</p>
           </div>
           <div class="feat-card reveal d3">
-            <div class="ficon fi-a">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#F59E0B"
-                stroke-width="1.8"
-              >
-                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
-                <polyline points="16 7 22 7 22 13" />
+            <div class="ficon fi-m">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6CBF8E" stroke-width="1.8">
+                <circle cx="12" cy="12" r="9"/><path d="M8.5 12l2.2 2.2L15.5 9.6"/>
               </svg>
             </div>
-            <h3>Insights &amp; What-If</h3>
-            <p>
-              Spot patterns, track budget drift, and pressure-test changes
-              before you make them. What if rent changes? What if one of you
-              gets paid early? See the plan first.
-            </p>
+            <h3>Payday Promise</h3>
+            <p>Assign each paycheck to your buckets, then confirm what actually happened — the honest difference between planned and done.</p>
+          </div>
+          <div class="feat-card reveal d2">
+            <div class="ficon fi-sl">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A5F75" stroke-width="1.8">
+                <path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4 12.5-12.5z"/>
+              </svg>
+            </div>
+            <h3>Unlimited logging</h3>
+            <p>Log every transaction by hand — no bank linking and no limits. You decide what counts toward the plan.</p>
+          </div>
+          <div class="feat-card reveal d1">
+            <div class="ficon fi-a">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="1.8">
+                <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8.5 15.5l2 2 4-4"/>
+              </svg>
+            </div>
+            <h3>Weekly Money Meeting</h3>
+            <p>A guided 10-minute check-in. Review the plan, celebrate wins, and agree on what needs attention next — together.</p>
+          </div>
+          <div class="feat-card reveal d2">
+            <div class="ficon fi-s">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4D7C74" stroke-width="1.8">
+                <polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/>
+              </svg>
+            </div>
+            <h3>Recurring bills &amp; repeats</h3>
+            <p>Templates for the bills and purchases you repeat, so every payday is fast. Free, not a paid add-on.</p>
+          </div>
+          <div class="feat-card reveal d3">
+            <div class="ficon fi-sl">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A5F75" stroke-width="1.8">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+              </svg>
+            </div>
+            <h3>Invite your partner</h3>
+            <p>Share one plan through encrypted CloudKit sync. Both of you see the same buckets, goals, and decisions.</p>
           </div>
           <div class="feat-card reveal d1">
             <div class="ficon fi-f">
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#E8985A"
-                stroke-width="1.8"
-              >
-                <path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z" />
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8985A" stroke-width="1.8">
+                <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
               </svg>
             </div>
-            <h3>No Bank Sync Required</h3>
-            <p>
-              OurPlan works from the income, bills, goals, and notes you enter.
-              Your shared plan syncs through iCloud, with no bank login or
-              account credentials.
-            </p>
+            <h3>CSV export — free forever</h3>
+            <p>Take your transactions and budget with you anytime — even if a subscription ever lapses.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRO -->
+    <section class="pro-section" id="pro">
+      <div class="inner">
+        <div class="reveal">
+          <div class="tag">OurPlan Pro</div>
+          <h2 class="sh2">Pro proves and protects<br /><em>what you build together.</em></h2>
+          <p class="ssub">
+            Free runs your payday. Pro is the couple coordination layer — proof
+            of what you did, protection if plans change, and peace when you
+            decide together. $9.99/mo or $49.99/yr, with a 14-day trial.
+          </p>
+        </div>
+        <div class="pro-grid">
+          <div class="pro-col reveal d1">
+            <div class="pro-col-head">
+              <div class="pro-col-ic i-sage">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4D7C74" stroke-width="1.8"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </div>
+              <h3>Proof</h3>
+            </div>
+            <p class="pc-sub">See what you actually did, together.</p>
+            <div class="pro-list">
+            <div class="pro-item">
+              <h4>What We Carried</h4>
+              <p>Planned vs verified contribution per partner, using your agreed split. A record, never a scoreboard.</p>
+            </div>
+            <div class="pro-item">
+              <h4>Since We Started</h4>
+              <p>Lifetime verified milestones — and how far your payoff date has moved.</p>
+            </div>
+            <div class="pro-item">
+              <h4>Shared Debt Progress</h4>
+              <p>Lender-confirmed reductions and the streaks you build together.</p>
+            </div>
+            <div class="pro-item">
+              <h4>Full Money History</h4>
+              <p>The complete meeting and decision archive, beyond the free last four.</p>
+            </div>
+            </div>
+          </div>
+          <div class="pro-col reveal d2">
+            <div class="pro-col-head">
+              <div class="pro-col-ic i-slate">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4A5F75" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <h3>Protection</h3>
+            </div>
+            <p class="pc-sub">Know you'd be okay if plans change.</p>
+            <div class="pro-list">
+            <div class="pro-item">
+              <h4>Resilience Check</h4>
+              <p>If one income paused, what stays protected — and for how long?</p>
+            </div>
+            <div class="pro-item">
+              <h4>Debt Payoff Forecasts</h4>
+              <p>Avalanche vs snowball, payoff dates, and the interest impact of each.</p>
+            </div>
+            <div class="pro-item">
+              <h4>What-If Planner</h4>
+              <p>Pressure-test income changes, extra saving, or big purchases before you commit.</p>
+            </div>
+            <div class="pro-item">
+              <h4>Fair Split &amp; Settle-Up</h4>
+              <p>See who paid more and what a fair settle-up actually looks like.</p>
+            </div>
+            </div>
+          </div>
+          <div class="pro-col reveal d3">
+            <div class="pro-col-head">
+              <div class="pro-col-ic i-flex">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8985A" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg>
+              </div>
+              <h3>Peace</h3>
+            </div>
+            <p class="pc-sub">Decide together, without friction.</p>
+            <div class="pro-list">
+            <div class="pro-item">
+              <h4>Couple Debt Agreements</h4>
+              <p>Formal ownership and fairness, with each partner's acknowledgment.</p>
+            </div>
+            <div class="pro-item">
+              <h4>Private-Then-Reveal Planning</h4>
+              <p>Choose your priorities separately, then reveal them together.</p>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="pro-also reveal">
+          <span class="pa-label">Also included</span>
+          <span class="pro-chip">Unlimited buckets &amp; goals</span>
+          <span class="pro-chip">1-tap smart logging</span>
+          <span class="pro-chip">Insights &amp; Trends</span>
+          <span class="pro-chip">Voice capture</span>
         </div>
       </div>
     </section>
@@ -2318,11 +2802,11 @@
       <div class="inner">
         <div class="reveal">
           <div class="tag">Pricing</div>
-          <h2 class="sh2">Free forever.<br /><em>Pro when you grow.</em></h2>
+          <h2 class="sh2">Free forever.<br /><em>Pro when you&rsquo;re ready.</em></h2>
           <p class="ssub">
-            Start with the core planning tools for free — buckets, payday
-            checklists, check-ins, and partner sync. Upgrade only when you want
-            advanced planning tools.
+            The entire payday loop is free — logging, buckets, debt protection,
+            partner sync, recurring bills, and CSV export. Pro adds the couple
+            coordination layer.
           </p>
         </div>
         <div class="pricing-grid">
@@ -2331,37 +2815,47 @@
             <div class="p-price">
               <span class="amt">$0</span><span class="per">/ forever</span>
             </div>
-            <div class="p-note">No credit card. No expiry. Just start.</div>
+            <div class="p-note">No credit card. No bank linking. Just start.</div>
             <div class="p-div"></div>
             <div class="p-features">
               <div class="pf">
-                <span class="check y">✓</span>Paycheck planning
+                <span class="check y">✓</span>Unlimited manual logging (no bank linking)
               </div>
               <div class="pf">
-                <span class="check y">✓</span>Essentials, Growth, Reserves, Flex
+                <span class="check y">✓</span>Essentials, Growth, Reserves &amp; Flex buckets
               </div>
               <div class="pf">
-                <span class="check y">✓</span>Full Money Meeting flow
+                <span class="check y">✓</span>Debt-Aware Plan + free debt-free date
               </div>
               <div class="pf">
-                <span class="check y">✓</span>Partner sync via iCloud
+                <span class="check y">✓</span>Debt Rescue Mode when a paycheck is short
               </div>
               <div class="pf">
-                <span class="check y">✓</span>Payday checklist
+                <span class="check y">✓</span>Payday funding + Payday Promise
               </div>
               <div class="pf">
-                <span class="check y">✓</span>Up to 2 shared goals
+                <span class="check y">✓</span>Guided weekly Money Meeting
               </div>
-              <div class="pf dim">
-                <span class="check n">—</span>Last 4 meeting history only
+              <div class="pf">
+                <span class="check y">✓</span>Invite your partner (encrypted CloudKit sync)
               </div>
-              <div class="pf dim">
-                <span class="check n">—</span>Insights &amp; What-If locked
+              <div class="pf">
+                <span class="check y">✓</span>&ldquo;Who Plans to Cover This?&rdquo; split
+              </div>
+              <div class="pf">
+                <span class="check y">✓</span>Recurring bills &amp; repeats
+              </div>
+              <div class="pf">
+                <span class="check y">✓</span>CSV export — free forever
+              </div>
+              <div class="pf">
+                <span class="check y">✓</span>Home &amp; Lock Screen widgets
+              </div>
+              <div class="pf">
+                <span class="check y">✓</span>Up to 10 buckets, 2 goals, last 4 meetings
               </div>
             </div>
-            <a href="https://apps.apple.com/app/ourplan-couples-budget/id6760730097" class="btn-p free"
-              >Download Free</a
-            >
+            <a href="https://apps.apple.com/app/ourplan-couples-budget/id6760730097" class="btn-p free">Download Free</a>
           </div>
           <div class="p-card pro shimmer reveal d2">
             <div class="p-badge">14-Day Free Trial</div>
@@ -2370,151 +2864,74 @@
               <span class="amt">$4.17</span><span class="per">/ mo</span>
             </div>
             <div class="p-note">
-              <strong>$2.08/person/mo</strong> on annual — covers both partners<br>
-              Billed $49.99/yr · <strong>Save 58% vs monthly</strong> · or $9.99/mo
+              Billed <strong>$49.99/yr</strong> — save 58% vs $9.99 monthly<br>
+              14-day free trial · cancel anytime
             </div>
             <div class="p-div"></div>
-
-            <!-- Pillar 1 -->
+            <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">
+              Everything in Free, plus the couple coordination layer:
+            </div>
             <div style="margin-bottom: 14px">
-              <div
-                style="
-                  font-size: 11px;
-                  font-weight: 700;
-                  text-transform: uppercase;
-                  letter-spacing: 0.9px;
-                  color: var(--sage);
-                  margin-bottom: 8px;
-                  display: flex;
-                  align-items: center;
-                  gap: 6px;
-                "
-              >
-                <svg
-                  width="11"
-                  height="11"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                >
-                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                  <circle cx="12" cy="12" r="3" />
-                </svg>
-                Keep your plan visible
+              <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.9px; color: var(--sage); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                Proof
               </div>
               <div class="p-features" style="margin-bottom: 0">
                 <div class="pf">
-                  <span class="check y">✓</span>1-Tap Smart Logging — reuse
-                  common entries quickly
+                  <span class="check y">✓</span>What We Carried — planned vs verified per partner
                 </div>
                 <div class="pf">
-                  <span class="check y">✓</span>Bills &amp; Repeats in One Tap —
-                  keep recurring items easy to update
+                  <span class="check y">✓</span>Since We Started — lifetime milestones &amp; payoff movement
                 </div>
                 <div class="pf">
-                  <span class="check y">✓</span>Home &amp; Lock Screen widgets —
-                  your month always in sight
+                  <span class="check y">✓</span>Shared Debt Progress — lender-confirmed reductions
+                </div>
+                <div class="pf">
+                  <span class="check y">✓</span>Full Money History — every meeting &amp; decision
                 </div>
               </div>
             </div>
-
-            <!-- Pillar 2 -->
             <div style="margin-bottom: 14px">
-              <div
-                style="
-                  font-size: 11px;
-                  font-weight: 700;
-                  text-transform: uppercase;
-                  letter-spacing: 0.9px;
-                  color: var(--sage);
-                  margin-bottom: 8px;
-                  display: flex;
-                  align-items: center;
-                  gap: 6px;
-                "
-              >
-                <svg
-                  width="11"
-                  height="11"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                >
-                  <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                  <circle cx="9" cy="7" r="4" />
-                  <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
-                </svg>
-                Stay fair together
+              <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.9px; color: var(--sage); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Protection
               </div>
               <div class="p-features" style="margin-bottom: 0">
                 <div class="pf">
-                  <span class="check y">✓</span>Fair Split &amp; Settle-Up — see
-                  who paid more at a glance
+                  <span class="check y">✓</span>Resilience Check — if one income paused
                 </div>
                 <div class="pf">
-                  <span class="check y">✓</span>Full Money History — every
-                  check-in, note &amp; decision
+                  <span class="check y">✓</span>Debt Payoff Forecasts — avalanche vs snowball
+                </div>
+                <div class="pf">
+                  <span class="check y">✓</span>What-If Planner — pressure-test big changes
+                </div>
+                <div class="pf">
+                  <span class="check y">✓</span>Fair Split &amp; Settle-Up — who paid more
                 </div>
               </div>
             </div>
-
-            <!-- Pillar 3 -->
-            <div style="margin-bottom: 20px">
-              <div
-                style="
-                  font-size: 11px;
-                  font-weight: 700;
-                  text-transform: uppercase;
-                  letter-spacing: 0.9px;
-                  color: var(--sage);
-                  margin-bottom: 8px;
-                  display: flex;
-                  align-items: center;
-                  gap: 6px;
-                "
-              >
-                <svg
-                  width="11"
-                  height="11"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                >
-                  <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
-                  <polyline points="16 7 22 7 22 13" />
-                </svg>
-                Plan ahead with confidence
+            <div style="margin-bottom: 14px">
+              <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.9px; color: var(--sage); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.6l-1-1a5.5 5.5 0 00-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 000-7.8z"/></svg>
+                Peace
               </div>
               <div class="p-features" style="margin-bottom: 0">
                 <div class="pf">
-                  <span class="check y">✓</span>Insights &amp; Trends — spot
-                  patterns before they become problems
+                  <span class="check y">✓</span>Couple Debt Agreements — with acknowledgment
                 </div>
                 <div class="pf">
-                  <span class="check y">✓</span>What-If Planner — pressure-test
-                  changes before payday
-                </div>
-                <div class="pf">
-                  <span class="check y">✓</span>Unlimited buckets, unlimited
-                  goals, CSV export
+                  <span class="check y">✓</span>Private-Then-Reveal Planning — decide together
                 </div>
               </div>
             </div>
-
-            <a href="https://apps.apple.com/app/ourplan-couples-budget/id6760730097" class="btn-p pro"
-              >Start 14-Day Free Trial</a
-            >
-            <p
-              style="
-                text-align: center;
-                font-size: 12px;
-                color: var(--text-dim);
-                margin-top: 10px;
-              "
-            >
+            <div class="p-features" style="margin-bottom: 20px; margin-top: 6px;">
+              <div class="pf">
+                <span class="check y">✓</span>Unlimited buckets &amp; goals, 1-tap smart logging, Insights &amp; Trends, voice capture
+              </div>
+            </div>
+            <a href="https://apps.apple.com/app/ourplan-couples-budget/id6760730097" class="btn-p pro">Start 14-Day Free Trial</a>
+            <p style="text-align: center; font-size: 12px; color: var(--text-dim); margin-top: 10px;">
               Cancel anytime. No questions asked.
             </p>
           </div>
@@ -2617,6 +3034,32 @@
         resize();
         init();
         tick();
+      })();
+
+      // ── MARQUEE ──
+      (function () {
+        const track = document.getElementById("mtrack");
+        if (!track) return;
+        const items = [
+          "Debt-Aware Plan",
+          "Payday Promise",
+          "Weekly Money Meeting",
+          "Fund Your Buckets",
+          "Recurring Bills & Repeats",
+          "CSV Export — free forever",
+          "Who Plans to Cover This?",
+          "Resilience Check",
+          "What-If Planner",
+          "Fair Split & Settle-Up",
+          "Shared Debt Progress",
+          "No Bank Linking",
+        ];
+        const star =
+          '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l1.8 3.6L14 5.6l-3 2.9.7 4.1L8 10.8 4.3 12.6l.7-4.1-3-2.9 4.2-.6z"/></svg>';
+        const html = items
+          .map((t) => `<div class="marquee-item">${star}${t}</div>`)
+          .join("");
+        track.innerHTML = html + html;
       })();
 
       // ── SCROLL ──
@@ -2735,7 +3178,7 @@
       })();
 
       // ── NAV SCROLL SPY ──
-      ["screens", "rhythm", "features", "pricing"].forEach((id) => {
+      ["screens", "rhythm", "features", "pro", "pricing"].forEach((id) => {
         const el = document.getElementById(id);
         if (!el) return;
         new IntersectionObserver(
